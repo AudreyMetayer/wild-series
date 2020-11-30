@@ -8,6 +8,9 @@
 /var/
 /vendor/
 .idea
+webpack.config.js
+yarn.lock
+package.json
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
