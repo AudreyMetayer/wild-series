@@ -10,17 +10,9 @@
             <h3 class="mt-0">Saison {{ season.number }} ({{ season.year}})</h3>
             <p>{{ season.description }}</p>
 
-            <ul>
-                {% for episode in episodes %}
-                <li>
-                   <h5>Episode {{ episode.number }} : {{episode.title}} </h5>
-                 <span>
-                    <a href="{{ path("program_episode_show", { programId: program.id, seasonId : season.id, episodeId : episode.id}) }}">Résumé</a>
-                 </span>
-                </li>
-                    <br>
-                {% endfor %}
-            </ul>
+            <h5>Episode {{ episode.number }} : {{episode.title}} </h5>
+            <p>{{ episode.synopsis }}</p>
+            <a class="link" href="{{ path("program_season_show", { programId: program.id, seasonId : season.id}) }}">Retour</a>
 
         </div>
     </div>
