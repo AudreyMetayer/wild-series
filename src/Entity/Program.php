@@ -8,6 +8,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
+
+
 
 /**
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
@@ -26,9 +29,11 @@ class Program
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\Length(max="255", maxMessage="Ce titre existe déjà")
+     * @Assert\NotBlank(message="Ne me laisse pas tout vide")
+     * @Assert\Length(max="255", maxMessage="La catégorie saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères")
      * @ORM\Column(name="title", type="string", length=255, unique=true)
-     * @Assert\Title
+     * @Assert\Type("string")
+     *
      */
     private $title;
 
