@@ -10,3 +10,6 @@ Forms : https://www.loom.com/share/732c3fa483c04681adeed06ca1616598
 
 
 CRUD : https://www.loom.com/share/afec4e9204ac4b42871f071138ab798e
+
+
+Validation : https://www.loom.com/share/4e22bf9c4569476ba2ac7c8946834d02
