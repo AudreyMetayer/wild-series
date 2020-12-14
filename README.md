@@ -19,3 +19,6 @@ Many-to-Many : https://www.loom.com/share/3c24d56f5701404787575ae0c8136e7f
 
 
 EntityType : https://www.loom.com/share/593bb67c28714ed793fa7935d5cdc263
+
+
+Fixtures : https://www.loom.com/share/40ad8a79d3d045749f268ec0c8e4bd65
