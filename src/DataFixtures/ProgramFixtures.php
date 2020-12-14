@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Category;
 use App\Entity\Program;
 use Faker;
+use App\Service\Slugify;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -57,9 +58,12 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         ],
     ];
 
-    public function getDependencies()
+
+    private $slugify;
+
+    public function __construct(Slugify $slugify)
     {
-        return [CategoryFixtures::class];
+        $this->slugify = $slugify;
     }
 
     public function load(ObjectManager $manager)
@@ -74,6 +78,10 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
             $program->setYear($data['year']);
             $program->setPoster($data['poster']);
             $program->setCategory($this->getReference('category_' . rand(0,count(CategoryFixtures::CATEGORIES)-1)));
+
+            $slug = $this->slugify->generate($program->getTitle());
+            $program->setSlug($slug);
+
             $manager->persist($program);
             $this->addReference('program_' . $i, $program);
             $i++;
@@ -83,6 +91,10 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
+    public function getDependencies()
+    {
+        return [CategoryFixtures::class];
+    }
 
 
 
