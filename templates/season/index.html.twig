@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Program_id</th>
                 <th>Numéro</th>
                 <th>Année</th>
                 <th>Description</th>
@@ -19,6 +20,7 @@
         {% for season in seasons %}
             <tr>
                 <td>{{ season.id }}</td>
+                <td>{{ season.program.id }}</td>
                 <td>{{ season.number }}</td>
                 <td>{{ season.year }}</td>
                 <td>{{ season.description }}</td>

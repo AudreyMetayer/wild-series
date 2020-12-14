@@ -9,7 +9,7 @@
     <h5>Programmes associés : </h5>
     <ul>
         {% for program in actor.programs %}
-            <a href="{{ path("program_show", { programId: program.id }) }}">
+            <a href="{{ path("program_show", { slug: program.slug }) }}">
             <li>{{ program.title }} </li>
             </a>
         {% else %}

@@ -15,7 +15,7 @@
                 <li>
                    <h5>Episode {{ episode.number }} : {{episode.title}} </h5>
                  <span>
-                    <a href="{{ path("program_episode_show", { programId: program.id, seasonId : season.id, episodeId : episode.id}) }}">Résumé</a>
+                    <a href="{{ path("program_episode_show", { programSlug: program.slug, seasonId : season.id, episodeSlug : episode.slug}) }}">Résumé</a>
                  </span>
                 </li>
                     <br>

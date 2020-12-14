@@ -12,7 +12,7 @@
 
             <h5>Episode {{ episode.number }} : {{episode.title}} </h5>
             <p>{{ episode.synopsis }}</p>
-            <a class="link" href="{{ path("program_season_show", { programId: program.id, seasonId : season.id}) }}">Retour</a>
+            <a class="link" href="{{ path("program_season_show", { programSlug: program.slug, seasonId : season.id}) }}">Retour</a>
 
         </div>
     </div>
