@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class ProgramType extends AbstractType
 {
@@ -28,6 +29,10 @@ class ProgramType extends AbstractType
             'multiple' => true,
             'expanded' => true,
             'by_reference' => false,
+        ])
+
+        ->add('slug', HiddenType::class, [
+        'data' => 'title',
         ]);
     }
 

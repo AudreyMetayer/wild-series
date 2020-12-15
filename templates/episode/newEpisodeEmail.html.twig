@@ -1,0 +1,9 @@
+{% extends 'mail.html.twig' %}
+
+{% block body %}
+<h1>L'épisode {{ episode.title }} vient d'être ajouté !</h1>
+<p>Bonjour à toi, l'épisode {{ episode.title }} vient tout juste d'être ajouté à Wild Séries, viens vite le découvrir !</p>
+    <p>Résumé : {{ episode.synopsis }} </p>
+
+
+{% endblock %}
