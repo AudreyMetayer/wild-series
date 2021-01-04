@@ -97,10 +97,20 @@ class CommentController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
+            $episode = $comment->getEpisode();
+            $episodeSlug = $episode->getSlug();
+            $season = $episode->getSeason();
+            $seasonId = $season->getId();
+            $program = $season->getProgram();
+            $programSlug = $program->getSlug();
             $entityManager->remove($comment);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('comment_index');
+        return $this->redirectToRoute('program_episode_show', [
+            'programSlug' => $programSlug,
+            'seasonId' => $seasonId,
+            'episodeSlug' => $episodeSlug,
+        ]);
     }
 }

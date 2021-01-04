@@ -20,6 +20,13 @@
             <ul>
                 {% for comment in episode.comments %}
                     <li>{{ comment.comment }} - {{ comment.rate }}</li>
+                    {% if is_granted("ROLE_ADMIN") %}
+                        {{ include('comment/_delete_form.html.twig') }}
+                    {% elseif is_granted("ROLE_CONTRIBUTOR") %}
+                        {% if app.user == comment.author %}
+                            {{ include('comment/_delete_form.html.twig') }}
+                        {% endif %}
+                    {% endif %}
                 {% endfor %}
             </ul>
                 </div>
