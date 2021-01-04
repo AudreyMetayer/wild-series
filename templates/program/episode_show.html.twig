@@ -9,9 +9,21 @@
             <h1 class="mt-0">{{ program.title }}</h1>
             <h3 class="mt-0">Saison {{ season.number }} ({{ season.year}})</h3>
             <p>{{ season.description }}</p>
-
             <h5>Episode {{ episode.number }} : {{episode.title}} </h5>
             <p>{{ episode.synopsis }}</p>
+            {% if app.user %}
+                <b><a href="{{ path("comment_new", {id: episode.id}) }}">
+                    Ajouter un commentaire
+                </a></b>
+            {% else %}
+            {% endif %}
+            <ul>
+                {% for comment in episode.comments %}
+                    <li>{{ comment.comment }} - {{ comment.rate }}</li>
+                {% endfor %}
+            </ul>
+                </div>
+
             <a class="link" href="{{ path("program_season_show", { programSlug: program.slug, seasonId : season.id}) }}">Retour</a>
 
         </div>

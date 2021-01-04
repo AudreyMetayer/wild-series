@@ -12,10 +12,10 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $season = new Season();
             $faker  =  Faker\Factory::create('en_US');
-            $season->setNumber($faker->numberBetween(0,10));
+            $season->setNumber($faker->numberBetween(0,50));
             $season->setYear($faker->year);
             $season->setDescription($faker->text);
             $season->setProgram($this->getReference('program_' . rand(0,count(ProgramFixtures::PROGRAMS)-1)));
