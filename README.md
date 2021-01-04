@@ -30,4 +30,7 @@ Services : https://www.loom.com/share/7e14b666bcb04ee9968b15067c33f2cb
 Mails : https://www.loom.com/share/33adc47d1d114b4e9b6100b148e0d181
 
 
-Gestion des utilisateurs : https://www.loom.com/share/2d40cf4777d74d148001b7d634bc67fc
+User managing : https://www.loom.com/share/2d40cf4777d74d148001b7d634bc67fc
+
+
+Roots Security : https://www.loom.com/share/e054e18a4b2f4386ab7b541c2a183b73
