@@ -34,3 +34,6 @@ User managing : https://www.loom.com/share/2d40cf4777d74d148001b7d634bc67fc
 
 
 Roots Security : https://www.loom.com/share/e054e18a4b2f4386ab7b541c2a183b73
+
+
+User register
