@@ -9,15 +9,17 @@ use App\Form\ProgramType;
 use App\Form\SearchProgramType;
 use App\Repository\ProgramRepository;
 use App\Service\Slugify;
+use Cassandra\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/programs", name="program_")
@@ -31,7 +33,7 @@ class ProgramController extends AbstractController
      * @Route("/", name="index")
      * @return Response A response instance
      */
-    public function index(Request $request, ProgramRepository $programRepository): Response
+    public function index(SessionInterface $session, Request $request, ProgramRepository $programRepository): Response
     {
         $form = $this->createForm(SearchProgramType::class);
         $form->handleRequest($request);
@@ -66,6 +68,8 @@ class ProgramController extends AbstractController
             $program->setOwner($this->getUser());
             $entityManager->persist($program);
             $entityManager->flush();
+
+            $this->addFlash('success', 'La série à bien été ajoutée.');
 
             $email = (new Email())
                 ->from($this->getParameter('mailer_from'))
@@ -142,13 +146,10 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
+     * @IsGranted ("ROLE_ADMIN")
      */
     public function edit(Request $request, Program $program): Response
     {
-        if (!($this->getUser() == $program->getOwner())) {
-            // If not the owner, throws a 403 Access Denied exception
-            throw new AccessDeniedException('Only the owner can edit the program!');
-        }
 
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
@@ -164,4 +165,5 @@ class ProgramController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
 }
