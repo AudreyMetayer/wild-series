@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Chemin</th>
                 <th>Titre</th>
                 <th>Numéro</th>
                 <th>Synopsis</th>
@@ -19,7 +19,6 @@
         {% for episode in episodes %}
             <tr>
                 <td>{{ episode.slug }}</td>
-                <td>{{ episode.season.id }}</td>
                 <td>{{ episode.title }}</td>
                 <td>{{ episode.number }}</td>
                 <td>{{ episode.synopsis }}</td>
