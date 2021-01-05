@@ -40,3 +40,6 @@ User register : https://www.loom.com/share/7230f31da4784f34b1df4eb44446cea2
 
 
 Requests : https://www.loom.com/share/ebbdbbb2a9ee473f933942fc2b756f14
+
+
+Flashes Messages : https://www.loom.com/share/c3e7822a7cfb4a6ebe532718b2736884
