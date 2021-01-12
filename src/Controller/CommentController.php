@@ -37,6 +37,7 @@ class CommentController extends AbstractController
         $form->handleRequest($request);
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
+
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $comment->setAuthor($user);
