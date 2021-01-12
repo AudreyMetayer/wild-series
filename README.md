@@ -43,3 +43,6 @@ Requests : https://www.loom.com/share/ebbdbbb2a9ee473f933942fc2b756f14
 
 
 Flashes Messages : https://www.loom.com/share/c3e7822a7cfb4a6ebe532718b2736884
+
+
+Ajax : https://www.loom.com/share/4a3a5cf6a474416fb54a3ffc7b57a84a
